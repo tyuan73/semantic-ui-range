@@ -1,17 +1,16 @@
 {
   "name"        : "semantic-ui-range",
-  "description" : "Add-on range slider for Semantic UI",
-  "homepage"    : "https://github.com/tyleryasaka/semantic-ui-range",
+  "description" : "Add-on range selector for Semantic UI",
+  "homepage"    : "https://github.com/tyuan73/semantic-ui-range",
   "author": {
-    "name" : "Tyler Yasaka",
-    "web"  : "https://tyleryasaka.me/"
+    "name" : "Yuan Tian"
   },
   "dependencies": {
     "semantic"      : ">=2.2.0"
   },
   "main": [
-    "range.css",
-    "range.js"
+    "rangeselector.css",
+    "rangeselector.js"
   ],
   "keywords": [
     "semantic",

@@ -75,10 +75,8 @@
     position: absolute;
     top: 28px;
     width: 7.8em;
-    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-size: .84em;
     line-height: .1em;
-    color: rgba(0, 0, 0, .87);
 }
 
 .ui.range .inner input.start {

@@ -22,12 +22,14 @@
                 "<div class='thumb start'></div>", // start thumb
                 "<div class='thumb end'></div>", // end thumb
                 "<i class='step forward icon'></i>", // step forward/reset "end" icon
+                "<div class='ui form'>",
                 "<input type='text' class='start'>", // input for start value
                 "<i class='start caret up icon'></i>", // increase start value
                 "<i class='start caret down icon'></i>", // decrease start value
                 "<input type='text' class='end'>", // input for end value
                 "<i class='end caret up icon'></i>", // increase end value
                 "<i class='end caret down icon'></i>", // decrease end value
+                "</div>",
                 "</div>"
             ],
 

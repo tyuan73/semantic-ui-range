@@ -1,5 +1,5 @@
 # semantic-ui-range-selector
-Add-on range selector for Semantic UI. This is based on tyleryasaka's awesome range slider: https://github.com/tyleryasaka/semantic-ui-range
+Add-on range selector for Semantic UI. This is based on `tyleryasaka's` awesome range slider: [https://github.com/tyleryasaka/semantic-ui-range](https://github.com/tyleryasaka/semantic-ui-range)
 
 The most important difference between Range Selector and tyleryasaka's Range Slider is that you can select
 both "start" and "end" by sliding thumbs.
@@ -12,9 +12,9 @@ More demo: [Demo](https://codepen.io/tyuan73/pen/PKbqyo)
 
 ### Step 1
 
-Add Semantic UI (https://github.com/Semantic-Org/Semantic-UI).
+Add Semantic UI [https://github.com/Semantic-Org/Semantic-UI](https://github.com/Semantic-Org/Semantic-UI).
 
-Add the rangeselector.js and rangerangeselector.css files from this repo to your project.
+Add the `rangeselector.js` and `rangerangeselector.css` files from this repo to your project.
 
 ### Step 2
 

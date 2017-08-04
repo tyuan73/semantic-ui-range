@@ -108,14 +108,17 @@
                         });
                         var icon = $(element).find('i.step.backward.icon')[0];
                         $(icon).click(function() {
+                            if ($(element).hasClass('disabled')) return;
                             module.setValue(settings.min, null);
                         });
                         icon = $(element).find('i.step.forward.icon')[0];
                         $(icon).click(function() {
+                            if ($(element).hasClass('disabled')) return;
                             module.setValue(null, settings.max);
                         });
                         icon = $(element).find('i.start.up.icon')[0];
                         $(icon).mousedown(function() {
+                            if ($(element).hasClass('disabled')) return;
                             interval = setInterval(function() {
                                 module.changeValue(true, true);
                             }, 100);
@@ -124,6 +127,7 @@
                         });
                         icon = $(element).find('i.start.down.icon')[0];
                         $(icon).mousedown(function() {
+                            if ($(element).hasClass('disabled')) return;
                             interval = setInterval(function() {
                                 module.changeValue(true, false);
                             }, 100);
@@ -132,6 +136,7 @@
                         });
                         icon = $(element).find('i.end.up.icon')[0];
                         $(icon).mousedown(function() {
+                            if ($(element).hasClass('disabled')) return;
                             interval = setInterval(function() {
                                 module.changeValue(false, true);
                             }, 100);
@@ -140,6 +145,7 @@
                         });
                         icon = $(element).find('i.end.down.icon')[0];
                         $(icon).mousedown(function() {
+                            if ($(element).hasClass('disabled')) return;
                             interval = setInterval(function() {
                                 module.changeValue(false, false);
                             }, 100);

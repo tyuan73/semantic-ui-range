@@ -125,6 +125,9 @@
     color: #DB2828;
 }
 
+.ui.red.inverted.range .inner i.icon {
+    color: #FF695E;
+}
 
 /* Orange */
 
@@ -140,6 +143,9 @@
     color: #F2711C;
 }
 
+.ui.orange.inverted.range .inner i.icon {
+    color: #FF851B;
+}
 
 /* Yellow */
 
@@ -155,6 +161,9 @@
     color: #FBBD08;
 }
 
+.ui.yello.inverted.range .inner i.icon {
+    color: #FFE21F;
+}
 
 /* Olive */
 
@@ -170,6 +179,9 @@
     color: #B5CC18;
 }
 
+.ui.olive.inverted.range .inner i.icon {
+    color: #D9E778;
+}
 
 /* Green */
 
@@ -185,6 +197,9 @@
     color: #21BA45;
 }
 
+.ui.green.inverted.range .inner i.icon {
+    color: #2ECC40;
+}
 
 /* Teal */
 
@@ -200,6 +215,9 @@
     color: #00B5AD;
 }
 
+.ui.real.inverted.range .inner i.icon {
+    color: #6DFFFF;
+}
 
 /* Blue */
 
@@ -215,6 +233,9 @@
     color: #2185D0;
 }
 
+.ui.blue.inverted.range .inner i.icon {
+    color: #54C8FF;
+}
 
 /* Violet */
 
@@ -230,6 +251,9 @@
     color: #6435C9;
 }
 
+.ui.violet.inverted.range .inner i.icon {
+    color: #A291FB;
+}
 
 /* Purple */
 
@@ -245,6 +269,9 @@
     color: #A333C8;
 }
 
+.ui.purple.inverted.range .inner i.icon {
+    color: #DC73FF;
+}
 
 /* Pink */
 
@@ -260,6 +287,9 @@
     color: #E03997;
 }
 
+.ui.pink.inverted.range .inner i.icon {
+    color: #FF8EDF;
+}
 
 /* Brown */
 
@@ -275,6 +305,9 @@
     color: #A5673F;
 }
 
+.ui.brown.inverted.range .inner i.icon {
+    color: #D67C1C;
+}
 
 /* Grey */
 
@@ -290,6 +323,9 @@
     color: #767676;
 }
 
+.ui.grey.inverted.range .inner i.icon {
+    color: #DCDDDE;
+}
 
 /* Black */
 
@@ -305,6 +341,9 @@
     color: #1b1c1d;
 }
 
+.ui.black.inverted.range .inner i.icon {
+    color: #545454;
+}
 
 /*--------------
     Disabled
@@ -314,10 +353,14 @@
     opacity: .5;
 }
 
-.ui.range.disabled i.step.icon:hover, i.caret.icon:hover {
+.ui.range.disabled i.icon:hover {
     cursor: auto;
 }
 
 .ui.range.disabled .inner .track-fill {
     background: #ccc;
+}
+
+.ui.range.disabled .inner i.icon {
+    color: #ccc;
 }

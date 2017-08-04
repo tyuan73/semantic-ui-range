@@ -1,26 +1,24 @@
-# semantic-ui-range
-Add-on range slider for Semantic UI
+# semantic-ui-range-selector
+Add-on range selector for Semantic UI. This is based on tyleryasaka's awesome range slider: https://github.com/tyleryasaka/semantic-ui-range
 
-[Demo](http://codepen.io/tyleryasaka/pen/KVqPbo)
+The most important difference between Range Selector and tyleryasaka's Range Slider is that you can select
+both "start" and "end" by sliding thumbs.
 
-I created the range slider for [Semantic UI](http://semantic-ui.com/) when I found that one currently did not exist.
+![Range Selector](doc/range_selector.png)
 
-The range slider is responsive and works for both mouse and touchscreen on all the devices it has been tested on. It uses standard css/javascript (no hacks) so it should render well on just about any remotely modern device. That said I have not thoroughly tested it, so let me know if you encounter any bugs.
+More demo: [Demo](https://codepen.io/tyuan73/pen/PKbqyo)
 
 ## Usage
 
 ### Step 1
 
-Add the range.js and range.css files from this repo to your project.
+Add Semantic UI (https://github.com/Semantic-Org/Semantic-UI).
 
-Alternatively, you can install using Bower:
-```
-bower install tyleryasaka/semantic-ui-range --save
-```
+Add the rangeselector.js and rangerangeselector.css files from this repo to your project.
 
 ### Step 2
 
-Add the range slider html.
+Add the range selector html.
 
 	<div class="ui range" id="my-range"></div>
 
@@ -32,7 +30,8 @@ Instantiate the range slider with jQuery:
 		$('#my-range').range({
 			min: 0,
 			max: 10,
-			start: 5
+			start: 2,
+			end: 9
 		});
 	});
 
@@ -41,9 +40,9 @@ Instantiate the range slider with jQuery:
 Notice the settings object you pass into the jQuery function in step 3. There are 6 settings you can pass in:
 * min (number; required) - the lowest value (inclusive) of the range
 * max (number; required) - the highest value (inclusive) of the range
-* start (number; optional) - the initial value of the range (must be between min and max)
+* start (number; optional) - the initial start value of the range (must be between min and end; defaults to min)
+* end (number; optional) - the initial end value of the range (must be between start and max; defaults to max)
 * step (number; optional) - the increment amount between values (defaults to 1)
-* input (string; optional) - A jQuery identifier string (such as '#my-input') to specify an html input to receive the new range value each time it is changed
 * onChange (function; optional) - function to call each time the value of the range changes; parameters:
 	* value (number) - the updated value of the slider
 	* meta (object) - a hash with properties:
@@ -59,6 +58,7 @@ Use the `onChange` callback in the configuration options. For example:
       min: 0,
       max: 100,
       start: 5,
+	  end: 10,
       onChange: function(val) { myRangeValue = val; } // assigning the callback argument to your variable each time the value changes
     });
 
@@ -78,6 +78,7 @@ If you're running code in your `onChange` callback that calls the `set value` me
 		min: 0,
 		max: 100,
 		start: 5,
+		end: 10,
 		onChange: function(value, meta) {
 			if(meta.triggeredByUser) {
 				// now you can run code that will call `set value`
@@ -87,10 +88,4 @@ If you're running code in your `onChange` callback that calls the `set value` me
 
 ## Demo
 
-Check out the [demo](http://codepen.io/tyleryasaka/pen/KVqPbo) for examples.
-
-## Vertical Slider
-
-I haven't had time to develop new features, but [Buzut](https://github.com/Buzut) has added the ability to make the slider vertical:
-
-https://github.com/Buzut/semantic-ui-range
+Check out the [demo](https://codepen.io/tyuan73/pen/PKbqyo) for examples.

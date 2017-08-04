@@ -1,23 +1,24 @@
 {
-  "name"        : "semantic-ui-range",
-  "description" : "Add-on range selector for Semantic UI",
-  "homepage"    : "https://github.com/tyuan73/semantic-ui-range",
-  "author": {
-    "name" : "Yuan Tian"
-  },
-  "dependencies": {
-    "semantic"      : ">=2.2.0"
-  },
-  "main": [
-    "rangeselector.css",
-    "rangeselector.js"
-  ],
-  "keywords": [
-    "semantic",
-    "ui",
-    "css3",
-    "range",
-    "slider"
-  ],
-  "license" : "MIT"
+    "name": "semantic-ui-range-selector",
+    "description": "Add-on range selector for Semantic UI",
+    "homepage": "https://github.com/tyuan73/semantic-ui-range",
+    "author": {
+        "name": "Yuan Tian"
+    },
+    "dependencies": {
+        "semantic": ">=2.2.0"
+    },
+    "main": [
+        "rangeselector.css",
+        "rangeselector.js"
+    ],
+    "keywords": [
+        "semantic",
+        "ui",
+        "css3",
+        "range",
+        "selector",
+        "slider"
+    ],
+    "license": "MIT"
 }

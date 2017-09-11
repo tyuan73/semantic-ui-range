@@ -35,6 +35,7 @@
 
             query = arguments[0],
             methodInvoked = (typeof query == 'string'),
+            queryTest = arguments[1],
             queryArguments = [].slice.call(arguments, 1);
 
         $allModules
@@ -152,6 +153,39 @@
                         }).mouseup(function() {
                             clearInterval(interval);
                         });
+                        // support manual input
+                        $(inputStart).focusout(function() {
+                            module.manualInput(true);
+                        });
+                        $(inputStart).keydown(function(event) {
+                            if (event.which === 13) // if "enter" is pressed
+                                module.manualInput(true);
+                        });
+                        $(inputEnd).focusout(function() {
+                            module.manualInput(false);
+                        });
+                        $(inputEnd).keydown(function(event) {
+                            if (event.which === 13) // if "enter" is pressed
+                                module.manualInput(false);
+                        });
+                    },
+
+                    manualInput: function(isStart) {
+                        if (isStart) {
+                            var val = $(inputStart).val();
+                            if (!isNaN(val)) {
+                                val = parseInt(val);
+                                start = val < settings.min ? settings.min : val > end ? end : val;
+                            }
+                            instance.setValue();
+                        } else {
+                            var val = $(inputEnd).val();
+                            if (!isNaN(val)) {
+                                val = parseInt(val);
+                                end = val > settings.max ? settings.max : val < start ? start : val;
+                            }
+                            instance.setValue();
+                        }
                     },
 
                     sanitize: function() {
@@ -159,13 +193,13 @@
                             settings.min = parseInt(settings.min) || 0;
                         }
                         if (typeof settings.max != 'number') {
-                            settings.max = parseInt(settings.max) || false;
+                            settings.max = parseInt(settings.max) || 999;
                         }
                         if (typeof settings.start != 'number') {
                             settings.start = parseInt(settings.start) || 0;
                         }
                         if (typeof settings.end != 'number') {
-                            settings.end = parseInt(settings.end) || false;
+                            settings.end = parseInt(settings.end) || settings.max;
                         }
                     },
 
@@ -231,17 +265,25 @@
 
                     setValue: function(val1, val2) {
                         start = val1 == null ? start : val1;
-                        end = val2 || end;
+                        end = val2 == null ? end : val2;
                         module.refreshPosition();
                         module.displayValue();
+                        if (settings.onChange) {
+                            settings.onChange({
+                                start: start,
+                                end: end
+                            });
+                        }
                     },
 
                     displayValue: function() {
                         $(inputStart).val(start);
                         $(inputEnd).val(end);
+                        /*
                         if (settings.onChange) {
                             settings.onChange();
                         }
+                        */
                     },
 
                     rangeMousedown: function(mdEvent, isTouch, isStart, originalEvent) {
@@ -308,7 +350,7 @@
                             module.setValue(val, null);
                     },
 
-                    invoke: function(query) {
+                    invoke: function(query, queryArguments) {
                         switch (query) {
                             case 'set end value':
                                 if (queryArguments.length > 0) {
@@ -320,12 +362,22 @@
                                     instance.setStartValuePosition(queryArguments[0]);
                                 }
                                 break;
-                            case 'get value':
-                                return {
-                                    start: start,
-                                    end: end
-                                };
+                            case 'set value':
+                                if (queryArguments.length > 1) {
+                                    instance.setValue(queryArguments[0], queryArguments[1]);
+                                }
                                 break;
+                            case 'reset':
+                                instance.setValue(settings.min, settings.max);
+                                break;
+                                /*
+                                case 'get value':
+                                    return {
+                                        start: start,
+                                        end: end
+                                    };
+                                    break;
+                                */
                         }
                     },
 
@@ -335,7 +387,7 @@
                     if (instance === undefined) {
                         module.initialize();
                     }
-                    module.invoke(query);
+                    instance.invoke(query, queryArguments);
                 } else {
                     module.initialize();
                 }
